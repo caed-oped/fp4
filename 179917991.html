@@ -261,7 +261,7 @@
         
         <div class="container">
         
-            <p class="presentation-text">Relatório de Validações - 08/12/2023 09:39</p>
+            <p class="presentation-text">Relatório de Validações - 19/12/2023 12:14</p>
             <p class="subprogram-text">207 - 1799 - Alagoas - Saveal Alfa 2023</p>
         
                 <table class="table">
@@ -313,7 +313,7 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 06/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 18/12/2023</th>
                     </tr>
                     <tr>
                         <th>4 - Identificação de sujeitos e certificação de previstos</th>
@@ -383,10 +383,80 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 06/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 18/12/2023</th>
                     </tr>
                     <tr>
-                        <th>5 - Publicação de Resultados no Portal</th>
+                        <th>5 - Produção de Entidades</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de estado com nome vazio ', 'None', 'Checked')" >
+                        <td>1 -  Valida codigo ESTADO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de regional com nome vazio ', 'None', 'Checked')" >
+                        <td>2 -  Valida codigo REGIONAL com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de municipio com nome vazio ', 'None', 'Checked')" >
+                        <td>3 -  Valida codigo MUNICIPIO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de escola com nome vazio ', 'None', 'Checked')" >
+                        <td>4 -  Valida codigo ESCOLA com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Valida se existe algum codigo de turma com nome vazio ', 'TP_EXTRA =2, Reserva Técnica', 'Warning')" >
+                        <td>5 -  Valida codigo TURMA com nome vazio</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de aluno com nome vazio ', 'None', 'Checked')" >
+                        <td>6 -  Valida codigo ALUNO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Valida os municipios que possuem mais de uma regional atribuida', 'Concatenado CD_REGIONAL + CD_MUNICIPIO', 'Warning')" >
+                        <td>7 -  Valida municipio com mais de uma regional</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida diferentes escolas que estão com os mesmos codigos atribuidos', 'None', 'Checked')" >
+                        <td>8 -  Valida escolas duplicadas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Valida escolas que estão com diferentes codigos atribuidos, dentro do mesmo municipio', 'Veio da base de importação dessa forma', 'Warning')" >
+                        <td>9 -  Valida escolas duplicadas no municipio</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida escolas que estão com os mesmos codigos atribuidos, dentro de diferentes municipios', 'None', 'Checked')" >
+                        <td>10 -  Valida escolas duplicadas em diferentes municipio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Faz a validação de entidades que estão com os codigos atribuidos, mas sem nenhum nome', 'None', 'Checked')" >
+                        <td>11 -  Validação de entidades com código e sem nome atribuido</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Faz a validação dos CD_REGISTRO_CAED das entidades e retorna qual não está com o codigo correto', 'None', 'Checked')" >
+                        <td>12 -  Valida entidade com cd_registro_caed incorreto</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 19/12/2023</th>
+                    </tr>
+                    <tr>
+                        <th>6 - Publicação de Resultados no Portal</th>
                         <th>Status</th>
                     </tr>
                     
@@ -420,12 +490,12 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'None', 'Checked')" >
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'Houve exclusão de turma. [select distinct cd_entidade_turma,cd_rede_escola,cd_etapa_turma, qt from tmp.sdv_base_divulgacao_parcial where cd_entidade_turma ='17992071500001615']', 'Warning')" >
                         <td>7 -  Valida quantitativo de agregados</td>
-                        <td class="Checked">Checked</td>
+                        <td class="Warning">Warning</td>
                     </tr>
                     
-                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'São alunos que realizaram ESCRITA (92 ALUNOS)..', 'Warning')" >
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'São alunos que realizaram ESCRITA (92 ALUNOS).', 'Warning')" >
                         <td>8 -  Valida quantitativo do L205</td>
                         <td class="Warning">Warning</td>
                     </tr>
@@ -433,10 +503,10 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 04/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 12/12/2023</th>
                     </tr>
                     <tr>
-                        <th>6 - Conferência da Série Histórica para Plataforma</th>
+                        <th>7 - Conferência da Série Histórica para Plataforma</th>
                         <th>Status</th>
                     </tr>
                     
@@ -500,13 +570,33 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A soma da quantidade de estudantes nos padrões de desempenho deve ser igual ao numero de efetivos', 'None', 'Checked')" >
+                        <td>20 -  Correlação entre Estudantes nos Padroões e Efetivo</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de ensino não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>21 -  Validação dos Ensinos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de localização não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>22 -  Validação das Localizações</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de turno não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>23 -  Validação dos turnos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 07/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 19/12/2023</th>
                     </tr>
                     <tr>
-                        <th>7 - Microdados e Planilhas de Resultados</th>
+                        <th>8 - Microdados e Planilhas de Resultados</th>
                         <th>Status</th>
                     </tr>
                     
@@ -515,8 +605,8 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos por classificação de fluência está igual entre L210 e microdados', 'None', 'Checked')" >
-                        <td>2 -  Valida quantidade de alunos por faixa de classificação entre L210 e microdados</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos por padrão de desempenho está igual entre L210 e microdados', 'None', 'Checked')" >
+                        <td>2 -  Valida quantidade de alunos por padrão de desempenho entre L210 e microdados</td>
                         <td class="Checked">Checked</td>
                     </tr>
                     
@@ -525,28 +615,13 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos em cada classificação de fluência é a mesma entre L210 e planilha de resultado; considero apenas a entidade de nível mais alto (ex.: PAIS)', 'None', 'Checked')" >
-                        <td>4 -  Valida quantidade de alunos em cada classificação entre L210 e planilha de resultado</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Pré-leitor e Iniciante não tem &quot;compreensão do texto&quot;; Pré-leitor também não tem &quot;leitura de texto&quot;.', 'None', 'Checked')" >
-                        <td>5 -  Valida variáveis ocultadas dos microdados de acordo com a classificação da fluência</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se NU_ITENS_PALAVRAS e NU_ITENS_PSEUDO foram atualizados de 0 para a quantidade correta nos microdados', 'None', 'Checked')" >
-                        <td>6 -  Valida se NU_ITENS_PALAVRAS e NU_ITENS_PSEUDO foram atualizados nos microdados</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 07/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 19/12/2023</th>
                     </tr>
                     <tr>
-                        <th>8 - Conferência da Série Histórica para os Arquivos</th>
+                        <th>9 - Conferência da Série Histórica para os Arquivos</th>
                         <th>Status</th>
                     </tr>
                     
@@ -610,44 +685,24 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os tipos, redes, disciplinas, etapas, padroes e quantitativos absolutos entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na quantiadde de registros', 'None', 'Checked')" >
-                        <td>13 -  Validação e correlação com a tabela de desempenho com relação a quantitativos e padrões</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os documentos, redes, disciplinas, etapas e proficiencia entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na proficiencia', 'None', 'Checked')" >
-                        <td>14 -  Validação e correlação com a tabela de desempenho com relação a proficiencia</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma CD_ENTIDADE_ADMINISTRATIVA no L210 não está na SH', 'None', 'Checked')" >
-                        <td>15 -  Correlação da Entidade entre L210 para importacao e a Serie Historica</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma Edição no L210 não está na SH', 'None', 'Checked')" >
-                        <td>16 -  Correlação da Edição entre L210 para importacao e a Serie Historica</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Confere que nao existe mais de uma registro para cada CD_ENTIDADE_ADMINISTRATIVA e CD_INDICADOR', 'None', 'Checked')" >
-                        <td>17 -  Verificação de entidade e indicador unicos no L210</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Confere que nao existe mais de uma registro para cada CD_REGISTRO_CAED e CD_INDICADOR', 'None', 'Checked')" >
-                        <td>18 -  Verificação de registro caed e indicador unicos no L210</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
-                    <tr class="Checked-row"  onclick="openCritiqueModal('O campo CD_REGISTRO_CAED não pode estar nulo', 'None', 'Checked')" >
-                        <td>19 -  Verificação de campo obrigatorio no L210</td>
-                        <td class="Checked">Checked</td>
-                    </tr>
-                    
                     <tr class="Warning-row"  onclick="openCritiqueModal('A soma da quantidade de estudantes nos padrões de desempenho deve ser igual ao numero de efetivos', 'É da edição anterior. Mantivemos os valores do histórico', 'Warning')" >
                         <td>20 -  Correlação entre Estudantes nos Padroões e Efetivo</td>
                         <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de ensino não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>21 -  Validação dos Ensinos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de localização não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>22 -  Validação das Localizações</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de turno não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>23 -  Validação dos Turnos</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
@@ -656,7 +711,7 @@
                         <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
                     </tr>
                     <tr>
-                        <th>9 - Produçãdo de Índices e Prêmio</th>
+                        <th>10 - Produçãdo de Índices e Prêmio</th>
                         <th>Status</th>
                     </tr>
                     
