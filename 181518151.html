@@ -1,0 +1,646 @@
+
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f0f0f0;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                }
+        		
+                .container {
+                    margin-top: 20px; /* Ajuste conforme necessário */
+                    overflow-x: auto;
+                    width: 100%; /* Largura total da viewport */
+                }
+        
+                .presentation-text {
+                    margin: 0 auto; /* Centralizar o texto horizontalmente */
+                    text-align: center; /* Centralizar o texto horizontalmente */
+                      color: #333;
+                      padding: 20px;
+                      font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+                      font-weight: bold;
+                      margin: 0;            
+                }
+        
+                .subprogram-text {
+                    margin: 0 auto; /* Centralizar o texto horizontalmente */
+                    text-align: center; /* Centralizar o texto horizontalmente */
+                      color: #333;
+                      padding: 20px;
+                      font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+                      font-weight: bold;
+                      margin: 0;                  
+                }
+        
+                .table {
+                    width: 100%; /* Largura total da viewport */
+                    border-collapse: collapse;
+                    margin: 0 auto; /* Centralizar a tabela */
+                    margin-bottom: 20px; /* Adicione a margem desejada abaixo da tabela */
+                }
+        		
+                .table {
+                    border-collapse: collapse;
+                    width: 80%;
+                    margin-top: 20px;
+                }
+        
+                .table td, .table th {
+                    padding: 10px;
+                    text-align: left;
+                }
+        
+                .table th {
+                    background-color: #444;
+                    color: #fff;
+                }
+        
+                .row {
+                    cursor: pointer;
+                    background: linear-gradient(to right, #f0f0f0, #4CAF50);
+                    transition: background 0.3s;
+                }
+        
+        		.checked-row, .Checked-row {
+        			background: linear-gradient(to right, #f0f0f0, #4CAF50);
+        			transition: background 0.3s;
+        		}
+        
+        		.warning-row, .Warning-row {
+        			background: linear-gradient(to right, #f0f0f0, #FFC107);
+        			transition: background 0.3s;
+        		}
+        
+        		.error-row, .Error-row {
+        			background: linear-gradient(to right, #f0f0f0, #C90E1E);
+        			transition: background 0.3s;
+        		}
+                                       
+          		.missing-row, .Missing-row {
+          			background: linear-gradient(to right, #f0f0f0, #C93D0E);
+          			transition: background 0.3s;
+          		}
+                                         
+        		.checked-row:hover, .Checked-row:hover {
+        			background: linear-gradient(to right, #d6d4d4, #409443);
+        			border: 1px solid #409443; /* Troque "blue" pela cor desejada */
+        		}
+        
+        		.warning-row:hover, .Warning-row:hover {
+        			background: linear-gradient(to right, #d6d4d4, #d19e04);
+        			border: 1px solid #d19e04; /* Troque "blue" pela cor desejada */
+        		}
+        
+        		.error-row:hover, .Error-row:hover {
+        			background: linear-gradient(to right, #d6d4d4, #8a0813);
+        			border: 1px solid #8a0813; /* Troque "blue" pela cor desejada */
+        		}
+                                       
+          		.missing-row:hover, .Missing-row:hover {
+        			background: linear-gradient(to right, #d6d4d4, #9c2f0b);
+        			border: 1px solid #9c2f0b; /* Troque "blue" pela cor desejada */
+          		}                                 
+        
+                .row:hover {
+                    background: linear-gradient(to right, #f0f0f0, #4CAF50);
+                }
+        
+                .Checked {
+                    color: #000; /* Alteração da cor para preto */
+                }
+        
+                .Warning {
+                    color: #000; /* Alteração da cor para preto */
+                }
+        
+                .Error {
+                    color: #000; /* Alteração da cor para preto */
+                }
+        
+                .expanded {
+                    display: table-row-group;
+                }
+        
+                .description {
+                    display: none;
+                    background-color: #fff;
+                    padding: 10px;
+                }
+        		
+                .credits-button {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                }
+        
+                .modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    justify-content: center;
+                    align-items: center;
+                }
+        
+                .modal-content {
+                    background-color: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                }
+        
+                .close {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    cursor: pointer;
+                }
+        
+                .section {
+                    margin-bottom: 20px;
+                }
+        
+                h2 {
+                    margin-bottom: 10px;
+                }      
+        
+            </style>
+            <script>
+                function openCritiqueModal(description, justificativa, tipo) {
+                    const critiqueModalContent = document.getElementById('critique-modal-content');
+                    const critiqueModalJustificativa = document.getElementById('critique-modal-justificativa');
+                    const critiqueModalJustificativa2 = document.getElementById('critique-modal-justificativa2');
+                    const copyToClipboardButton = document.getElementById('copy-to-clipboard-button');
+        
+                    critiqueModalContent.innerHTML = description;
+                    critiqueModalJustificativa.innerHTML = justificativa;
+        
+                    // Mostra ou oculta a seção da justificativa com base no tipo
+                    critiqueModalJustificativa.style.display = (tipo && tipo.toLowerCase() === 'warning') ? 'block' : 'none';
+                    critiqueModalJustificativa2.style.display = (tipo && tipo.toLowerCase() === 'warning') ? 'block' : 'none';
+        
+                    document.getElementById('critique-modal').style.display = 'flex';
+                }
+        
+                function closeCritiqueModal() {
+                    document.getElementById('critique-modal').style.display = 'none';
+                }
+        
+                function openCreditsModal() {
+                    document.getElementById('credits-modal').style.display = 'flex';
+                }
+        
+                function closeCreditsModal() {
+                    document.getElementById('credits-modal').style.display = 'none';
+                }	
+            </script>
+        </head>
+        <body>
+        
+        <!-- Modal para críticas -->
+        <div id="critique-modal" class="modal" onclick="closeCritiqueModal()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close" onclick="closeCritiqueModal()">&times;</span>
+        
+                <div class="section">
+                    <h2>Descrição da Validação</h2>
+                    <div id="critique-modal-content"></div>
+                </div> 
+                <div class="section">
+                    <h2 id="critique-modal-justificativa2" style="display: none;">Justificativa para o Aviso</h2>
+                    <div id="critique-modal-justificativa" style="display: none;"></div>
+                </div>        
+            </div>
+        </div>
+        
+        <!-- Modal para créditos -->
+        <div id="credits-modal" class="modal" onclick="closeCreditsModal()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="close" onclick="closeCreditsModal()">&times;</span>
+                <div class="section">
+                    <h2>Design</h2>
+                    <p>Mara</p>
+                    <p>Rogério</p>
+                    <p>Rômulo</p>
+                </div> 
+                <div class="section">
+                    <h2>Desenvolvedor(es) das Críticas</h2>
+                    <p>Bruno</p>
+                    <p>Gabriela</p>
+                    <p>João Pedro</p>
+                    <p>Paula</p>
+                    <p>Rebecca</p>
+                    <p>Rogério</p>
+                    <p>Rômulo</p>
+                    <p>Victor</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="credits-button" onclick="openCreditsModal()">Créditos</button>
+        
+        <div class="container">
+        
+            <p class="presentation-text">Relatório de Validações - 14/01/2024 11:09</p>
+            <p class="subprogram-text">156 - 1815 - Paraná - Parceiro da Escola 2023 - 2ª Aplicação</p>
+        
+                <table class="table">
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">rebecca.carneiro - 03/01/2024</th>
+                    </tr>
+                    <tr>
+                        <th>1 - Item - Matriz de Referência</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Foram verificados todos os itens referentes ao projeto e se os mesmos possuem uma habilidade atribuida', 'None', 'Checked')" >
+                        <td>1 -  Verificação de itens/habilidades</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Foram verificados todos os itens referentes ao projeto e se os mesmos se encontram previstos no 204', 'None', 'Checked')" >
+                        <td>2 -  Verifica itens/previstos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Todos os itens previstos foram verificados e conferido de algum desses itens não foi utilizado', 'None', 'Checked')" >
+                        <td>3 -  Verifica previsto/itens utilizados</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Foram verificados todos os itens e seus respectivos gabaritos e analisado se existia alguma duplicidade, ou seja algum item com mais de um gabarito', 'None', 'Checked')" >
+                        <td>4 -  Verifica item/gabarito</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Foram verificadas todas as habilidades disponibilizadas e se as mesmas contam com um descritor.', 'None', 'Checked')" >
+                        <td>5 -  Valida habilidades</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Foram verificadas as habilidades e se as mesmas se encontram nos item das etapas previstas no 204', 'None', 'Checked')" >
+                        <td>6 -  Valida habilidades/etapa</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th>2 - Item - Faixas e Padrões</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Missing-row" >
+                        <td> Critica não realizada</td>
+                        <td class="Missing">Missing</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">rebecca.carneiro - 08/01/2024</th>
+                    </tr>
+                    <tr>
+                        <th>3 - Item - Escalas</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Realização a analise da correlação bisserial dos itens, identificando os itens com possiveis gabaritos incorretos e feita a correção', 'ANALISE DA CORRELAÇÃO BISSERIAL FEITA, E GABARITOS CORRIGIDOS', 'Checked')" >
+                        <td>1 -  Valida item escala e correção de gabarito</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">thiago.santos - 05/01/2024</th>
+                    </tr>
+                    <tr>
+                        <th>4 - Identificação de sujeitos e certificação de previstos</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a montagem do cd_aluno foi realizada corretamente correta', 'None', 'Checked')" >
+                        <td>1 -  cd_aluno correto</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se uma entidade administrativa está apontando para mais de um cd_aluno.', 'None', 'Checked')" >
+                        <td>2 -  Entidade apontando para mais de um código.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma cd_aluno está com mais de um nome de mãe', 'None', 'Checked')" >
+                        <td>3 -  cd_aluno apontando para mais de uma mãe.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se o quantitativo dos dados de alunos foram atualizados corretamente -> Se algum aluno ficou com algum atributo diferente entre os registros.', 'None', 'Checked')" >
+                        <td>4 -  Validação dos dados de alunos.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome.', 'None', 'Checked')" >
+                        <td>5 -  Nome de aluno com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome da mãe.', 'None', 'Checked')" >
+                        <td>6 -  Nome de mãe com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma turma', 'None', 'Checked')" >
+                        <td>7 -  entidade_aluno apontando para mais de uma turma</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma etapa', 'None', 'Checked')" >
+                        <td>8 -  entidade_aluno apontando para mais de uma etapa</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Alunos com nomes similares estão na mesma turma, deve-se identificar se tratam-se da mesma pessoa', 'None', 'Checked')" >
+                        <td>9 -  alunos com nomes similares na mesma turma</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Alunos com nomes iguais na mesma turma/etapa, mas com cd_entidade diferente', 'None', 'Checked')" >
+                        <td>10 -  NM_ALUNO apontando para mais de um CD_ENTIDADE</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('municipio apontando para mais de uma regional. Avaliar se é necessário criar cd_municipio diferente para não duplicar a entidade no 015', 'None', 'Checked')" >
+                        <td>11 -  municipio apontando para mais de uma regional</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('entidade_aluno apontando para mais de um nome de aluno. Deve-se atualizar dado para evitar duplicação.', 'None', 'Checked')" >
+                        <td>12 -  entidade_aluno apontando para mais de um nome</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th>5 - Produção de Entidades</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Missing-row" >
+                        <td> Critica não realizada</td>
+                        <td class="Missing">Missing</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">rebecca.carneiro - 12/01/2024</th>
+                    </tr>
+                    <tr>
+                        <th>6 - Publicação de Resultados no Portal</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Todos os itens de prova objetiva do L204 devem existir no L207.', 'None', 'Checked')" >
+                        <td>1 -  Valida se tem gabarito para todos os itens</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se tem indicador no L014 para todas as redes do L015, etapas do L204 e disciplinas do L207.', 'None', 'Checked')" >
+                        <td>2 -  Valida se gerou indicador para todas as redes, etapas e disciplinas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se tem indicador no L014 para todas as redes do L015, etapas do L204 e habilidades do L207.', 'None', 'Checked')" >
+                        <td>3 -  Valida se gerou indicador para todas as redes, etapas e habilidades</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de testes é a mesma nos leiautes L008, L209, L038 e L210 sujeito.', 'None', 'Checked')" >
+                        <td>4 -  Valida quantitativo de testes feitos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para cada documento excluído, deverá existir outro documento para o mesmo aluno, na mesma disciplina e que não esteja excluído.', 'None', 'Checked')" >
+                        <td>5 -  Valida documento excluído</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se os valores para TRI no L210 sujeito estão dentro do intervalo das faixas do L211.', 'None', 'Checked')" >
+                        <td>6 -  Valida se os valores de TRI estão dentro das faixas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'None', 'Checked')" >
+                        <td>7 -  Valida quantitativo de agregados</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'None', 'Checked')" >
+                        <td>8 -  Valida quantitativo do L205</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 27/12/2023</th>
+                    </tr>
+                    <tr>
+                        <th>7 - Conferência da Série Histórica para Plataforma</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para cada nivel de agregação, verificamos a consistencia entre as variaveis: TIPO, TIPO_SIGLA, CD_ABA, CD_PAIS, NM_PAIS, CD_ESTADO, NM_ESTADO, CD_REGIONAL, NM_REGIONAL, CD_MUNICIPIO, NM_MUNICIPIO, CD_ESCOLA, NM_ESCOLA, CD_LOCALIZACAO, NM_LOCALIZACAO, CD_TURMA, NM_TURMA, CD_TURNO e NM_TURNO', 'None', 'Checked')" >
+                        <td>1 -  Valida a relação das variaveis com com nivel de agregado</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As Variaveis do tipo float ou decimal devem ter como separador de casas decimais o caracter virguala (,) ao invés de ponto (.). Estas variaveis começam com o prefixo &quot;VL_&quot;. A proficiencia e a participação nao podem ser nulas', 'None', 'Checked')" >
+                        <td>2 -  Padronização das variaveis do tipo float ou decimal</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As Variaveis do tipo inteiro não podem apresentar casa decimais, e retirando os &quot;não apresentados&quot; (-) todas devem ser numericas. Estas variaveis começam com o prefixo &quot;NU_&quot;. O efetivo nao podem ser nulo', 'None', 'Checked')" >
+                        <td>3 -  Padronização das variaveis do tipo inteiro</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A data da ultima atualziação serve como referencia para os registros de uma determinada edição, é um campo obrigatorio', 'None', 'Checked')" >
+                        <td>4 -  Padronização da data da ultima atualização</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A flag de avalaido serve indicar se o registro foi avaliado ou nao, é um campo obrigatorio e binario', 'None', 'Checked')" >
+                        <td>5 -  Padronização da flag de avalaido</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de etapa (CD_ETAPA e DC_ETAPA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>6 -  Padronização das etapas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de rede (CD_REDE, DC_REDE e NM_REDE_SIGLA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>7 -  Padronização das redes</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de disciplinas (CD_DISCIPLINA, NM_DISCIPLINA e NM_REDE_SIGLA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>8 -  Padronização das disciplinas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('O campos de edição é obrigatorio e nao deve apontar para mais de uma data de atualizãção', 'None', 'Checked')" >
+                        <td>9 -  Conferencia das edições</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('O campo CD_DOCUMENTO é obrigatorio', 'None', 'Checked')" >
+                        <td>10 -  Padronização do documento (sequencial)</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Se avaliado o previsto e participação devem ser &quot;-&quot; ou algum valor maior que 0, o efetivo tem que ser maior que 0. Se o registro não for avaliado, o previsto tem que ser maior que 0, o efetivo e participação devem ser 0', 'None', 'Checked')" >
+                        <td>11 -  Correlação das variaveis de participação</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('No caso de avaliado os padrões devem apresentar valor diferente de &quot;-&quot;, e não pode ser nula. Verificamos se os valores apresentados na varivel DC_PADRAO correposnde aos valores da tabela de padrões da SH, tabela essa que faz o de-para entre os &quot;Ns&quot; e a nomeclatura dos padrões. O join é feito usando a rede, disciplina e etapa', 'None', 'Checked')" >
+                        <td>12 -  Validação e correlação dos Padrões</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os tipos, redes, disciplinas, etapas, padroes e quantitativos absolutos entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na quantiadde de registros', 'Verificado. Diferença se da pela atualização da edição de 2023 para 2023 - 1ª avaliacao', 'Warning')" >
+                        <td>13 -  Validação e correlação com a tabela de desempenho com relação a quantitativos e padrões</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os documentos, redes, disciplinas, etapas e proficiencia entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na proficiencia', 'Verificado. Diferença se da pela atualização da edição de 2023 para 2023 - 1ª avaliacao', 'Warning')" >
+                        <td>14 -  Validação e correlação com a tabela de desempenho com relação a proficiencia</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma CD_ENTIDADE_ADMINISTRATIVA no L210 não está na SH', 'None', 'Checked')" >
+                        <td>15 -  Correlação da Entidade entre L210 para importacao e a Serie Historica</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma Edição no L210 não está na SH', 'None', 'Checked')" >
+                        <td>16 -  Correlação da Edição entre L210 para importacao e a Serie Historica</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Confere que nao existe mais de uma registro para cada CD_ENTIDADE_ADMINISTRATIVA e CD_INDICADOR', 'None', 'Checked')" >
+                        <td>17 -  Verificação de entidade e indicador unicos no L210</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Confere que nao existe mais de uma registro para cada CD_REGISTRO_CAED e CD_INDICADOR', 'None', 'Checked')" >
+                        <td>18 -  Verificação de registro caed e indicador unicos no L210</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('O campo CD_REGISTRO_CAED não pode estar nulo', 'None', 'Checked')" >
+                        <td>19 -  Verificação de campo obrigatorio no L210</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A soma da quantidade de estudantes nos padrões de desempenho deve ser igual ao numero de efetivos', 'None', 'Checked')" >
+                        <td>20 -  Correlação entre Estudantes nos Padroões e Efetivo</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">gabriela.matos - 13/01/2024</th>
+                    </tr>
+                    <tr>
+                        <th>8 - Microdados e Planilhas de Resultados</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todos os documentos feitos e não excluídos do L210 estão nos microdados', 'None', 'Checked')" >
+                        <td>1 -  Valida documentos feitos entre L210 e microdados</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos por padrão de desempenho está igual entre L210 e microdados', 'None', 'Checked')" >
+                        <td>2 -  Valida quantidade de alunos por padrão de desempenho entre L210 e microdados</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todos os indicadores de entidade, rede e etapa do L210 agregado estão na planilha de resultado', 'None', 'Checked')" >
+                        <td>3 -  Valida EntidadexRedexEtapa entre L210 e planilha de resultado</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th>9 - Conferência da Série Histórica para os Arquivos</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Missing-row" >
+                        <td> Critica não realizada</td>
+                        <td class="Missing">Missing</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th>10 - Produçãdo de Índices e Prêmio</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Missing-row" >
+                        <td> Critica não realizada</td>
+                        <td class="Missing">Missing</td>
+                    </tr>
+                    
+                    
+                </table>
+        
+        </div> <!-- Fechamento da div.container -->
+        
+        </body>
+        </html>
+        
+        
