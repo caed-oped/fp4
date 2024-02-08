@@ -261,7 +261,7 @@
         
         <div class="container">
         
-            <p class="presentation-text">Relatório de Validações - 12/12/2023 14:29</p>
+            <p class="presentation-text">Relatório de Validações - 08/02/2024 12:32</p>
             <p class="subprogram-text">138 - 1808 - Rio Grande do Norte - Simais Alfa 2023</p>
         
                 <table class="table">
@@ -313,7 +313,7 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">bruno.oliveira - 08/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 08/02/2024</th>
                     </tr>
                     <tr>
                         <th>4 - Identificação de sujeitos e certificação de previstos</th>
@@ -383,10 +383,80 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">bruno.oliveira - 11/12/2023</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 08/02/2024</th>
                     </tr>
                     <tr>
-                        <th>5 - Publicação de Resultados no Portal</th>
+                        <th>5 - Produção de Entidades</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de estado com nome vazio ', 'None', 'Checked')" >
+                        <td>1 -  Valida codigo ESTADO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de regional com nome vazio ', 'None', 'Checked')" >
+                        <td>2 -  Valida codigo REGIONAL com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de municipio com nome vazio ', 'None', 'Checked')" >
+                        <td>3 -  Valida codigo MUNICIPIO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de escola com nome vazio ', 'None', 'Checked')" >
+                        <td>4 -  Valida codigo ESCOLA com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de turma com nome vazio ', 'None', 'Checked')" >
+                        <td>5 -  Valida codigo TURMA com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida se existe algum codigo de aluno com nome vazio ', 'None', 'Checked')" >
+                        <td>6 -  Valida codigo ALUNO com nome vazio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida os municipios que possuem mais de uma regional atribuida', 'None', 'Checked')" >
+                        <td>7 -  Valida municipio com mais de uma regional</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida diferentes escolas que estão com os mesmos codigos atribuidos', 'None', 'Checked')" >
+                        <td>8 -  Valida escolas duplicadas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida escolas que estão com diferentes codigos atribuidos, dentro do mesmo municipio', 'None', 'Checked')" >
+                        <td>9 -  Valida escolas duplicadas no municipio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Valida escolas que estão com os mesmos codigos atribuidos, dentro de diferentes municipios', 'None', 'Checked')" >
+                        <td>10 -  Valida escolas duplicadas em diferentes municipio</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Faz a validação de entidades que estão com os codigos atribuidos, mas sem nenhum nome', 'None', 'Checked')" >
+                        <td>11 -  Validação de entidades com código e sem nome atribuido</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Faz a validação dos CD_REGISTRO_CAED das entidades e retorna qual não está com o codigo correto', 'None', 'Checked')" >
+                        <td>13 -  Valida entidade com cd_registro_caed incorreto</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 08/02/2024</th>
+                    </tr>
+                    <tr>
+                        <th>6 - Publicação de Resultados no Portal</th>
                         <th>Status</th>
                     </tr>
                     
@@ -420,12 +490,12 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'Verificado utilizando agregação correta', 'Warning')" >
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'None', 'Checked')" >
                         <td>7 -  Valida quantitativo de agregados</td>
-                        <td class="Warning">Warning</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'verificado e ok', 'Checked')" >
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'None', 'Checked')" >
                         <td>8 -  Valida quantitativo do L205</td>
                         <td class="Checked">Checked</td>
                     </tr>
@@ -436,7 +506,7 @@
                         <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 11/12/2023</th>
                     </tr>
                     <tr>
-                        <th>6 - Conferência da Série Histórica para Plataforma</th>
+                        <th>7 - Conferência da Série Histórica para Plataforma</th>
                         <th>Status</th>
                     </tr>
                     
@@ -506,7 +576,7 @@
                         <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
                     </tr>
                     <tr>
-                        <th>7 - Microdados e Planilhas de Resultados</th>
+                        <th>8 - Microdados e Planilhas de Resultados</th>
                         <th>Status</th>
                     </tr>
                     
@@ -521,7 +591,7 @@
                         <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">bruno.oliveira - 12/12/2023</th>
                     </tr>
                     <tr>
-                        <th>8 - Conferência da Série Histórica para os Arquivos</th>
+                        <th>9 - Conferência da Série Histórica para os Arquivos</th>
                         <th>Status</th>
                     </tr>
                     
@@ -601,7 +671,7 @@
                         <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
                     </tr>
                     <tr>
-                        <th>9 - Produçãdo de Índices e Prêmio</th>
+                        <th>10 - Produçãdo de Índices e Prêmio</th>
                         <th>Status</th>
                     </tr>
                     
