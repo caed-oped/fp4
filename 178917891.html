@@ -261,7 +261,7 @@
         
         <div class="container">
         
-            <p class="presentation-text">Relatório de Validações - 29/01/2024 15:37</p>
+            <p class="presentation-text">Relatório de Validações - 19/02/2024 14:11</p>
             <p class="subprogram-text">200 - 1789 - Rio Grande do Sul - Saers 2023</p>
         
                 <table class="table">
@@ -323,37 +323,92 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">rebecca.carneiro - 29/01/2024</th>
                     </tr>
                     <tr>
                         <th>3 - Item - Escalas</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Realização a analise da correlação bisserial dos itens, identificando os itens com possiveis gabaritos incorretos e feita a correção', 'ANALISE DA CORRELAÇÃO BISSERIAL FEITA, E GABARITOS CORRIGIDOS', 'Checked')" >
+                        <td>1 -  Valida item escala e correção de gabarito</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">romulo.luiz - 08/02/2024</th>
                     </tr>
                     <tr>
                         <th>4 - Identificação de sujeitos e certificação de previstos</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se a montagem do cd_aluno foi realizada corretamente correta', 'Verificado. Registros montados dessa forma na base.', 'Warning')" >
+                        <td>1 -  cd_aluno correto</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se uma entidade administrativa está apontando para mais de um cd_aluno.', 'None', 'Checked')" >
+                        <td>2 -  Entidade apontando para mais de um código.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma cd_aluno está com mais de um nome de mãe', 'None', 'Checked')" >
+                        <td>3 -  cd_aluno apontando para mais de uma mãe.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se o quantitativo dos dados de alunos foram atualizados corretamente -> Se algum aluno ficou com algum atributo diferente entre os registros.', 'None', 'Checked')" >
+                        <td>4 -  Validação dos dados de alunos.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome.', 'None', 'Checked')" >
+                        <td>5 -  Nome de aluno com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome da mãe.', 'None', 'Checked')" >
+                        <td>6 -  Nome de mãe com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma turma', 'None', 'Checked')" >
+                        <td>7 -  entidade_aluno apontando para mais de uma turma</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma etapa', 'None', 'Checked')" >
+                        <td>8 -  entidade_aluno apontando para mais de uma etapa</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Alunos com nomes similares estão na mesma turma, deve-se identificar se tratam-se da mesma pessoa', 'Verificado. Não se trata do mesmo aluno (14 casos).', 'Warning')" >
+                        <td>9 -  alunos com nomes similares na mesma turma</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Alunos com nomes iguais na mesma turma/etapa, mas com cd_entidade diferente', 'Verificado. Não se trata do mesmo aluno.', 'Warning')" >
+                        <td>10 -  NM_ALUNO apontando para mais de um CD_ENTIDADE</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('municipio apontando para mais de uma regional. Avaliar se é necessário criar cd_municipio diferente para não duplicar a entidade no 015', 'None', 'Checked')" >
+                        <td>11 -  municipio apontando para mais de uma regional</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('entidade_aluno apontando para mais de um nome de aluno. Deve-se atualizar dado para evitar duplicação.', 'None', 'Checked')" >
+                        <td>12 -  entidade_aluno apontando para mais de um nome</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 26/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 19/02/2024</th>
                     </tr>
                     <tr>
                         <th>5 - Produção de Entidades</th>
@@ -598,7 +653,7 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 29/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 19/02/2024</th>
                     </tr>
                     <tr>
                         <th>8 - Microdados e Planilhas de Resultados</th>
