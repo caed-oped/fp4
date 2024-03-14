@@ -261,7 +261,7 @@
         
         <div class="container">
         
-            <p class="presentation-text">Relatório de Validações - 29/01/2024 13:23</p>
+            <p class="presentation-text">Relatório de Validações - 14/03/2024 14:20</p>
             <p class="subprogram-text">222 - 1782 - Rondônia - Saero 2023</p>
         
                 <table class="table">
@@ -338,22 +338,82 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">romulo.luiz - 05/03/2024</th>
                     </tr>
                     <tr>
                         <th>4 - Identificação de sujeitos e certificação de previstos</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a montagem do cd_aluno foi realizada corretamente correta', 'None', 'Checked')" >
+                        <td>1 -  cd_aluno correto</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se uma entidade administrativa está apontando para mais de um cd_aluno.', 'None', 'Checked')" >
+                        <td>2 -  Entidade apontando para mais de um código.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma cd_aluno está com mais de um nome de mãe', 'None', 'Checked')" >
+                        <td>3 -  cd_aluno apontando para mais de uma mãe.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se o quantitativo dos dados de alunos foram atualizados corretamente -> Se algum aluno ficou com algum atributo diferente entre os registros.', 'None', 'Checked')" >
+                        <td>4 -  Validação dos dados de alunos.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome.', 'None', 'Checked')" >
+                        <td>5 -  Nome de aluno com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome da mãe.', 'None', 'Checked')" >
+                        <td>6 -  Nome de mãe com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma turma', 'None', 'Checked')" >
+                        <td>7 -  entidade_aluno apontando para mais de uma turma</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma etapa', 'None', 'Checked')" >
+                        <td>8 -  entidade_aluno apontando para mais de uma etapa</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Alunos com nomes similares estão na mesma turma, deve-se identificar se tratam-se da mesma pessoa', 'Verificado. Não se tratam dos mesmos alunos (5 casos).--', 'Warning')" >
+                        <td>9 -  alunos com nomes similares na mesma turma</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Alunos com nomes iguais na mesma turma/etapa, mas com cd_entidade diferente', 'None', 'Checked')" >
+                        <td>10 -  NM_ALUNO apontando para mais de um CD_ENTIDADE</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('municipio apontando para mais de uma regional. Avaliar se é necessário criar cd_municipio diferente para não duplicar a entidade no 015', 'None', 'Checked')" >
+                        <td>11 -  municipio apontando para mais de uma regional</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('entidade_aluno apontando para mais de um nome de aluno. Deve-se atualizar dado para evitar duplicação.', 'None', 'Checked')" >
+                        <td>12 -  entidade_aluno apontando para mais de um nome</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Casos que estão com entidade administrativa vazia', 'None', 'Checked')" >
+                        <td>13 -  Entidade vazia</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 24/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 14/03/2024</th>
                     </tr>
                     <tr>
                         <th>5 - Produção de Entidades</th>
@@ -563,7 +623,7 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 29/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 14/03/2024</th>
                     </tr>
                     <tr>
                         <th>8 - Microdados e Planilhas de Resultados</th>
@@ -588,16 +648,101 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">joao.freitas - 14/03/2024</th>
                     </tr>
                     <tr>
                         <th>9 - Conferência da Série Histórica para os Arquivos</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para cada nivel de agregação, verificamos a consistencia entre as variaveis: TIPO, TIPO_SIGLA, CD_ABA, CD_PAIS, NM_PAIS, CD_ESTADO, NM_ESTADO, CD_REGIONAL, NM_REGIONAL, CD_MUNICIPIO, NM_MUNICIPIO, CD_ESCOLA, NM_ESCOLA, CD_LOCALIZACAO, NM_LOCALIZACAO, CD_TURMA, NM_TURMA, CD_TURNO e NM_TURNO', 'None', 'Checked')" >
+                        <td>1 -  Valida a relação das variaveis com com nivel de agregado</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As Variaveis do tipo float ou decimal devem ter como separador de casas decimais o caracter virguala (,) ao invés de ponto (.). Estas variaveis começam com o prefixo &quot;VL_&quot;. A proficiencia e a participação nao podem ser nulas', 'None', 'Checked')" >
+                        <td>2 -  Padronização das variaveis do tipo float ou decimal</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As Variaveis do tipo inteiro não podem apresentar casa decimais, e retirando os &quot;não apresentados&quot; (-) todas devem ser numericas. Estas variaveis começam com o prefixo &quot;NU_&quot;. O efetivo nao podem ser nulo', 'None', 'Checked')" >
+                        <td>3 -  Padronização das variaveis do tipo inteiro</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A data da ultima atualziação serve como referencia para os registros de uma determinada edição, é um campo obrigatorio', 'None', 'Checked')" >
+                        <td>4 -  Padronização da data da ultima atualização</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A flag de avalaido serve indicar se o registro foi avaliado ou nao, é um campo obrigatorio e binario', 'None', 'Checked')" >
+                        <td>5 -  Padronização da flag de avalaido</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de etapa (CD_ETAPA e DC_ETAPA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>6 -  Padronização das etapas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de rede (CD_REDE, DC_REDE e NM_REDE_SIGLA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>7 -  Padronização das redes</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('As variaveis de disciplinas (CD_DISCIPLINA, NM_DISCIPLINA e NM_REDE_SIGLA) são obrigatorias e devem respeitar um padrao de codigo e descrição', 'None', 'Checked')" >
+                        <td>8 -  Padronização das disciplinas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('O campos de edição é obrigatorio e nao deve apontar para mais de uma data de atualizãção', 'None', 'Checked')" >
+                        <td>9 -  Conferencia das edições</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('O campo CD_DOCUMENTO é obrigatorio', 'None', 'Checked')" >
+                        <td>10 -  Padronização do documento (sequencial)</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Se avaliado o previsto e participação devem ser &quot;-&quot; ou algum valor maior que 0, o efetivo tem que ser maior que 0. Se o registro não for avaliado, o previsto tem que ser maior que 0, o efetivo e participação devem ser 0', 'None', 'Checked')" >
+                        <td>11 -  Correlação das variaveis de participação</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('No caso de avaliado os padrões devem apresentar valor diferente de &quot;-&quot;, e não pode ser nula. Verificamos se os valores apresentados na varivel DC_PADRAO correposnde aos valores da tabela de padrões da SH, tabela essa que faz o de-para entre os &quot;Ns&quot; e a nomeclatura dos padrões. O join é feito usando a rede, disciplina e etapa', 'None', 'Checked')" >
+                        <td>12 -  Validação e correlação dos Padrões</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os tipos, redes, disciplinas, etapas, padroes e quantitativos absolutos entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na quantiadde de registros', 'None', 'Checked')" >
+                        <td>13 -  Validação e correlação com a tabela de desempenho com relação a quantitativos e padrões</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Vamos correlacionar e validar os documentos, redes, disciplinas, etapas e proficiencia entre as duas tabelas, procurando por registros que existam em apenas uma ou que apresente diferença na proficiencia', 'None', 'Checked')" >
+                        <td>14 -  Validação e correlação com a tabela de desempenho com relação a proficiencia</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('A soma da quantidade de estudantes nos padrões de desempenho deve ser igual ao numero de efetivos', 'None', 'Checked')" >
+                        <td>20 -  Correlação entre Estudantes nos Padroões e Efetivo</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de ensino não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>21 -  Validação dos Ensinos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de localização não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>22 -  Validação das Localizações</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Para projetos onde o agregado de turno não é relevante, devemos usar o campo como null e nao '-' se tiver os dois valores vai dar erro na planilha de resultados', 'None', 'Checked')" >
+                        <td>23 -  Validação dos Turnos</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
