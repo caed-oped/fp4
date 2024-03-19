@@ -261,7 +261,7 @@
         
         <div class="container">
         
-            <p class="presentation-text">Relatório de Validações - 20/01/2024 22:07</p>
+            <p class="presentation-text">Relatório de Validações - 19/03/2024 16:29</p>
             <p class="subprogram-text">197 - 1804 - Mato Grosso - Avalia Mt 2023</p>
         
                 <table class="table">
@@ -348,22 +348,82 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">romulo.luiz - 05/03/2024</th>
                     </tr>
                     <tr>
                         <th>4 - Identificação de sujeitos e certificação de previstos</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a montagem do cd_aluno foi realizada corretamente correta', 'None', 'Checked')" >
+                        <td>1 -  cd_aluno correto</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se uma entidade administrativa está apontando para mais de um cd_aluno.', 'None', 'Checked')" >
+                        <td>2 -  Entidade apontando para mais de um código.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se alguma cd_aluno está com mais de um nome de mãe', 'None', 'Checked')" >
+                        <td>3 -  cd_aluno apontando para mais de uma mãe.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se o quantitativo dos dados de alunos foram atualizados corretamente -> Se algum aluno ficou com algum atributo diferente entre os registros.', 'None', 'Checked')" >
+                        <td>4 -  Validação dos dados de alunos.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome.', 'None', 'Checked')" >
+                        <td>5 -  Nome de aluno com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verificação se algum aluno está com algum caractere invalido no nome da mãe.', 'None', 'Checked')" >
+                        <td>6 -  Nome de mãe com caractere invalido.</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma turma', 'None', 'Checked')" >
+                        <td>7 -  entidade_aluno apontando para mais de uma turma</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('atributo CD_ENTIDADE_ADMINISTRATIVA_ALUNO está duplicado em mais de uma etapa', 'None', 'Checked')" >
+                        <td>8 -  entidade_aluno apontando para mais de uma etapa</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Alunos com nomes similares estão na mesma turma, deve-se identificar se tratam-se da mesma pessoa', 'Verificado. Não se tratam dos mesmos alunos (8 casos).', 'Warning')" >
+                        <td>9 -  alunos com nomes similares na mesma turma</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Alunos com nomes iguais na mesma turma/etapa, mas com cd_entidade diferente', 'None', 'Checked')" >
+                        <td>10 -  NM_ALUNO apontando para mais de um CD_ENTIDADE</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('municipio apontando para mais de uma regional. Avaliar se é necessário criar cd_municipio diferente para não duplicar a entidade no 015', 'None', 'Checked')" >
+                        <td>11 -  municipio apontando para mais de uma regional</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('entidade_aluno apontando para mais de um nome de aluno. Deve-se atualizar dado para evitar duplicação.', 'None', 'Checked')" >
+                        <td>12 -  entidade_aluno apontando para mais de um nome</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Casos que estão com entidade administrativa vazia', 'None', 'Checked')" >
+                        <td>13 -  Entidade vazia</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 20/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 19/03/2024</th>
                     </tr>
                     <tr>
                         <th>5 - Produção de Entidades</th>
@@ -433,16 +493,51 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2"></th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 19/03/2024</th>
                     </tr>
                     <tr>
                         <th>6 - Publicação de Resultados no Portal</th>
                         <th>Status</th>
                     </tr>
                     
-                    <tr class="Missing-row" >
-                        <td> Critica não realizada</td>
-                        <td class="Missing">Missing</td>
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Todos os itens de prova objetiva do L204 devem existir no L207.', 'None', 'Checked')" >
+                        <td>1 -  Valida se tem gabarito para todos os itens</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se tem indicador no L014 para todas as redes do L015, etapas do L204 e disciplinas do L207.', 'None', 'Checked')" >
+                        <td>2 -  Valida se gerou indicador para todas as redes, etapas e disciplinas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se tem indicador no L014 para todas as redes do L015, etapas do L204 e habilidades do L207.', 'None', 'Checked')" >
+                        <td>3 -  Valida se gerou indicador para todas as redes, etapas e habilidades</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de testes é a mesma nos leiautes L008, L209, L038 e L210 sujeito.', 'None', 'Checked')" >
+                        <td>4 -  Valida quantitativo de testes feitos</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Para cada documento excluído, deverá existir outro documento para o mesmo aluno, na mesma disciplina e que não esteja excluído.', 'Sequencial com outra entidade', 'Warning')" >
+                        <td>5 -  Valida documento excluído</td>
+                        <td class="Warning">Warning</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se os valores para TRI no L210 sujeito estão dentro do intervalo das faixas do L211.', 'None', 'Checked')" >
+                        <td>6 -  Valida se os valores de TRI estão dentro das faixas</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se gerou indicador no L210 agregado para todas as estidade x rede x etapa x disciplina esperados na base_divulgacao.', 'None', 'Checked')" >
+                        <td>7 -  Valida quantitativo de agregados</td>
+                        <td class="Checked">Checked</td>
+                    </tr>
+                    
+                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todas as entidades do L015 estão sendo publicadas no L205.', 'None', 'Checked')" >
+                        <td>8 -  Valida quantitativo do L205</td>
+                        <td class="Checked">Checked</td>
                     </tr>
                     
                     
@@ -563,7 +658,7 @@
                     
                     
                     <tr>
-                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 20/01/2024</th>
+                        <th style="font-size: 14px; color: #bed3d4; height: 10px; text-align: right;" colspan="2">victor.kingma - 19/03/2024</th>
                     </tr>
                     <tr>
                         <th>8 - Microdados e Planilhas de Resultados</th>
@@ -575,9 +670,9 @@
                         <td class="Checked">Checked</td>
                     </tr>
                     
-                    <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos por padrão de desempenho está igual entre L210 e microdados', 'None', 'Checked')" >
+                    <tr class="Warning-row"  onclick="openCritiqueModal('Verifica se a quantidade de alunos por padrão de desempenho está igual entre L210 e microdados', 'Cartão genérico', 'Warning')" >
                         <td>2 -  Valida quantidade de alunos por padrão de desempenho entre L210 e microdados</td>
-                        <td class="Checked">Checked</td>
+                        <td class="Warning">Warning</td>
                     </tr>
                     
                     <tr class="Checked-row"  onclick="openCritiqueModal('Verifica se todos os indicadores de entidade, rede e etapa do L210 agregado estão na planilha de resultado', 'None', 'Checked')" >
